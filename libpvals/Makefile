@@ -10,7 +10,8 @@ SOURCES=\
     testu01/fbar.c testu01/fdist.c testu01/util.c \
     testu01/num.c testu01/num2.c testu01/fmass.c \
     testu01/tables.c testu01/mystr.c testu01/bitset.c \
-    testu01/gofs.c testu01/gofw.c testu01/wdist.c testu01/testu01.c
+    testu01/gofs.c testu01/gofw.c testu01/wdist.c testu01/testu01.c \
+    utils.c
 
 OBJECTS=$(SOURCES:.c=.o)
 

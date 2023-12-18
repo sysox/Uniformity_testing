@@ -10,7 +10,7 @@
 #include <math.h>
 #include <string.h>
 #include <time.h>
-#include "libpvals/libpvals.h"
+#include "libpvals.h"
 
 void seed_xorshift32(uint32_t seed);
 uint32_t xorshift32();

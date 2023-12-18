@@ -15,5 +15,7 @@ LIBPVALS {
     testu01_pvalue_wg;
     testu01_pvalue_wu;
 
+    GoF_pvals;
+
   local: *;
 };
