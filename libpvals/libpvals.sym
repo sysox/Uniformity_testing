@@ -1,0 +1,19 @@
+LIBPVALS {
+  global:
+    dieharder_pvalue;
+    dieharder_pvalue_kuiper;
+
+    nist_pvalue;
+
+    testu01_pvalue_snpair_ClosePairs;
+    testu01_pvalue_sknuth_MaxOft;
+    testu01_pvalue_ksp;
+    testu01_pvalue_ksm;
+    testu01_pvalue_ks;
+    testu01_pvalue_ad;
+    testu01_pvalue_cm;
+    testu01_pvalue_wg;
+    testu01_pvalue_wu;
+
+  local: *;
+};
