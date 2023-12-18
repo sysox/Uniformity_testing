@@ -91,7 +91,7 @@ int compare_function(const void *a,const void *b) {
 
 
 
-void hist(int num_pvals, double* pvalues, int num_bins, double* bin_edges, int* bins){
+void hist(int num_pvals, double* pvalues, double* bin_edges, int* bins){
     int idx_pvals, idx_bin_edges;
 //    qsort (pvalues, num_pvals, sizeof(double ), compare_function);
     if(pvalues[num_pvals - 1] > 1){

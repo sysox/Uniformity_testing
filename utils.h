@@ -19,5 +19,7 @@ uint32_t xorshift32();
 void read_pvals(const char* filename, double** pvalues, int *num_pvalues);
 void random_sample(const double* values, int num_values, double* sample, int sample_size);
 int compare_function(const void *a,const void *b);
-void hist(int num_pvals, double* pvalues, int num_bins, double* bin_edges, int* bins);
+void hist(int num_pvals, double* pvalues, double* bin_edges, int* bins);
+
+
 #endif //UNIFORMITY_TESTING_UTILS_H
