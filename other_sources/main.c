@@ -18,8 +18,8 @@ int main()
     printf("KS right tail p-value %0.10lf = \n", KS_stat_to_pval(n, d, 1));
     printf("KS both tails pvalue %0.10lf = \n", KS_stat_to_pval(n, d, 2));
 
-    printf("KS left tail p-value %0.10lf = \n", KS(pvalues, n, -1));
-    printf("KS right tail p-value %0.10lf = \n", KS(pvalues, n, 1));
-    printf("KS both tails p-value %0.10lf = \n", KS(pvalues, n, 2));
+    printf("KS left tail p-value %0.10lf = \n", KS_left(pvalues, n));
+    printf("KS right tail p-value %0.10lf = \n", KS_right(pvalues, n));
+    printf("KS both tails p-value %0.10lf = \n", KS_both(pvalues, n));
 
 }

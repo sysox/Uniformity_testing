@@ -136,12 +136,21 @@ double KS_stat_to_pval(int n,double d, int tails){
             break;
     }
 }
-double KS(double *pvalues, int n, int tails){
+double KS_tails(double *pvalues, int n, int tails){
     double d, cdf;
     d = D_n(pvalues, n);
-    cdf = K(n,d);
-
+    return KS_stat_to_pval(n, d, tails);
 }
 
+double KS_both(double *pvalues, int n){
+    return KS_tails(pvalues, n, 2);
+}
 
+double KS_left(double *pvalues, int n){
+    return KS_tails(pvalues, n, -1);
+}
+
+double KS_right(double *pvalues, int n){
+    return KS_tails(pvalues, n, 1);
+}
 
