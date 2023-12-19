@@ -17,5 +17,16 @@ LIBPVALS {
 
     GoF_pvals;
 
+    K;
+    D_n;
+
+
+    KS_stat_to_pval;
+    KS_tails;
+
+    KS_both;
+    KS_left;
+    KS_right;
+
   local: *;
 };

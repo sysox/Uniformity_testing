@@ -1,24 +1,15 @@
-LIB=libks
 TARGET=test-ks
 CFLAGS=-O3 -g -Wall -fPIC
-LDLIBS=-lm $(LIB).a
+LDLIBS=-lm
 CC=gcc
 
-TARGET_SOURCES=main.c
-SOURCES=k.c
+SOURCES=k.c main.c
 
-TARGET_OBJECTS=$(TARGET_SOURCES:.c=.o)
 OBJECTS=$(SOURCES:.c=.o)
 
-all: $(LIB).a $(LIB).so $(TARGET)
+all: $(TARGET)
 
-$(LIB).a: $(OBJECTS)
-	ar rcs $@ $(OBJECTS)
-
-$(LIB).so: $(OBJECTS)
-	$(CC) $(CPPFLAGS) $(OBJECTS) -o $@ $(LDLIBS) -shared -W
-
-$(TARGET): $(TARGET_OBJECTS) $(LIB).a
+$(TARGET): $(OBJECTS)
 	$(CC) -o $@ $^ $(LDLIBS) $(LDFLAGS)
 
 clean:
