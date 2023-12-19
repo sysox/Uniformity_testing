@@ -1,7 +1,7 @@
 TARGET=Uniformity_testing
 CPPFLAGS=
-CFLAGS=-O3 -g -Wall
-LDLIBS=-lm -lgsl libpvals/libpvals.a
+CFLAGS=-O3 -g
+LDLIBS=-lm -lgsl other_sources/KS.a
 LDFLAGS=
 CC=gcc
 
@@ -11,14 +11,14 @@ OBJECTS=$(SOURCES:.c=.o)
 
 all: $(TARGET)
 
-libpvals/libpvals.a:
-	make -C libpvals
+other_sources/KS.a:
+	make -C libKS
 
-$(TARGET): $(OBJECTS) libpvals/libpvals.a
+$(TARGET): $(OBJECTS) other_sources/KS.a
 	$(CC) -o $@ $^ $(LDLIBS) $(LDFLAGS)
 
 clean:
 	rm -f *.o *~ core $(TARGET)
-	make -C libpvals clean
+	make -C libKS clean
 
 .PHONY: clean
