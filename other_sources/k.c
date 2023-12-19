@@ -153,4 +153,3 @@ double KS_left(double *pvalues, int n){
 double KS_right(double *pvalues, int n){
     return KS_tails(pvalues, n, 1);
 }
-

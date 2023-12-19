@@ -1,22 +1,27 @@
-TARGET=other_sources
-CPPFLAGS=
-CFLAGS=-O3 -g -Wall -fPIC -D_GNU_SOURCE
-LDLIBS=-lm -lgsl
+LIB=libks
+TARGET=test-ks
+CFLAGS=-O3 -g -Wall -fPIC
+LDLIBS=-lm $(LIB).a
 CC=gcc
 
+TARGET_SOURCES=main.c
 SOURCES=k.c
 
+TARGET_OBJECTS=$(TARGET_SOURCES:.c=.o)
 OBJECTS=$(SOURCES:.c=.o)
 
-all: $(TARGET).a $(TARGET).so
+all: $(LIB).a $(LIB).so $(TARGET)
 
-$(TARGET).a: $(OBJECTS)
+$(LIB).a: $(OBJECTS)
 	ar rcs $@ $(OBJECTS)
 
-$(TARGET).so: $(OBJECTS)
+$(LIB).so: $(OBJECTS)
 	$(CC) $(CPPFLAGS) $(OBJECTS) -o $@ $(LDLIBS) -shared -W
 
+$(TARGET): $(TARGET_OBJECTS) $(LIB).a
+	$(CC) -o $@ $^ $(LDLIBS) $(LDFLAGS)
+
 clean:
-	rm -f *.o k.o *~ core *.a *.so
+	rm -f *.o k.o *~ core *.a *.so $(TARGET)
 
 .PHONY: clean
