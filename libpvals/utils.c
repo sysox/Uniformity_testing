@@ -138,7 +138,7 @@ void GoF_pvals(const char* src_file, int sample_size, int repetitions, int GoF_i
 
     sample = (double *) malloc(sample_size*sizeof(double));
     read_pvals(src_file, &pvalues,&num_pvals);
-    random_sample(pvalues, num_pvals, sample, sample_size);
+
 
     const double *tst = sample;
     unsigned long long tst_num = (unsigned long long)sample_size;
@@ -147,6 +147,7 @@ void GoF_pvals(const char* src_file, int sample_size, int repetitions, int GoF_i
     GoF gof_func = GoF_functions[GoF_idx];
     for(i = 0; i < repetitions; i++)
     {
+        random_sample(pvalues, num_pvals, sample, sample_size);
         resulted_pvals[i] = gof_func(tst, tst_num);
     }
 
