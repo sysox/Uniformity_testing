@@ -14,8 +14,8 @@
 
     /* prototypes*/
 double K(int n,double d) ;                        //Kolmogorov distribution
-void mMultiply(double *A,double *B,double *C,int m) ;      //Matrix product
-void mPower(double *A,int eA,double *V,int *eV,int m,int n); //Matrix power
+static void mMultiply(double *A,double *B,double *C,int m) ;      //Matrix product
+static void mPower(double *A,int eA,double *V,int *eV,int m,int n); //Matrix power
 
 double D_n(double *pvalues, int n); //KS statistic with expected pdf = [0,1] uniformity
 double KS_stat_to_pval(int n,double d, int tails);
@@ -60,7 +60,7 @@ if(s>7.24||(s>3.76&&n>99)) return 1-2*exp(-(2.000071+.331/sqrt(n)+1.409/n)*s);
     free(Q);
     return s;
 }
-void mMultiply(double *A,double *B,double *C,int m)
+static void mMultiply(double *A,double *B,double *C,int m)
 {
     int i,j,k;
     double s;
@@ -72,7 +72,7 @@ void mMultiply(double *A,double *B,double *C,int m)
             C[i*m+j]=s;
         }
 }
-void mPower(double *A,int eA,double *V,int *eV,int m,int n)
+static void mPower(double *A,int eA,double *V,int *eV,int m,int n)
 {
     double *B;int eB,i;
     if(n==1)
@@ -94,7 +94,7 @@ void mPower(double *A,int eA,double *V,int *eV,int m,int n)
 
 
 //New stuff
-int compare_function(const void *a,const void *b) {
+static int compare_function(const void *a,const void *b) {
     double *x = (double *) a;
     double *y = (double *) b;
     if ((double)*x < (double)*y) return -1;

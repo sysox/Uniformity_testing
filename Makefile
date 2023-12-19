@@ -1,7 +1,7 @@
 TARGET=Uniformity_testing
 CPPFLAGS=
 CFLAGS=-O3 -g -Wall
-LDLIBS=-lm -lgsl libpvals/libpvals.a
+LDLIBS=-lm -lgsl libpvals/libpvals.a other_sources/libks.a
 LDFLAGS=
 CC=gcc
 
@@ -17,7 +17,7 @@ libpvals/libpvals.a:
 other_sources/libks.a:
 	make -C other_sources
 
-$(TARGET): $(OBJECTS) libpvals/libpvals.a
+$(TARGET): $(OBJECTS) libpvals/libpvals.a other_sources/libks.a
 	$(CC) -o $@ $^ $(LDLIBS) $(LDFLAGS)
 
 clean:
